@@ -33,3 +33,21 @@ describe('<Form /> rendering', () => {
     expect(wrapper.find('#formButtonSubtract')).toHaveLength(1);
   });
 });
+
+describe('<Form /> interactions', () => {
+  it('should change the state firstNumber when onChange function of the #number1 input is invoked', () => {
+    wrapper.find('#number1').simulate('change', 
+      {target: { value: 50 }}
+    );
+    expect(wrapper.state('firstNumber')).toEqual(50);
+    expect(wrapper.state('secondNumber')).toEqual('');
+  });
+
+  it('should change the state secondNumber when onChange function of the #number2 input is invoked', () => {
+    wrapper.find('#number2').simulate('change',
+      { target: { value: 60 }}
+    );
+    expect(wrapper.state('secondNumber')).toEqual(60);
+    expect(wrapper.state('firstNumber')).toEqual('');
+  });
+});
