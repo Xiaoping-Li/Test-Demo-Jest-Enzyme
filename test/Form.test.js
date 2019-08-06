@@ -67,3 +67,9 @@ describe('<Form /> interactions', () => {
     expect(mockedHandleClickSubtract).toHaveBeenCalledTimes(1);
   });
 });
+
+describe('<Form /> lifecycle method invocations', () => {
+  it('should change the state componentState componentDidMount method is invoked', () => {
+    expect(wrapper.state('componentState')).toEqual('mounted');
+  });
+});
