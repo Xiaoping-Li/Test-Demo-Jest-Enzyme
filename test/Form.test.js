@@ -50,4 +50,20 @@ describe('<Form /> interactions', () => {
     expect(wrapper.state('secondNumber')).toEqual(60);
     expect(wrapper.state('firstNumber')).toEqual('');
   });
+
+  it('should call the onClick function when \'Add\' button is clicked when the operator is \'+\'', () => {
+    wrapper.setProps({ operator: '+' });
+    const mockedHandleClickAdd = jest.fn();
+    wrapper.instance().handleAdd = mockedHandleClickAdd;
+    wrapper.find('#formButtonAdd').props().onClick();
+    expect(mockedHandleClickAdd).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call the onClick function when \'Subtract\' button is clicked when the operator is \'-\'', () => {
+    wrapper.setProps({ operator: '-' });
+    const mockedHandleClickSubtract = jest.fn();
+    wrapper.instance().handleSubtract = mockedHandleClickSubtract;
+    wrapper.find('#formButtonSubtract').props().onClick();
+    expect(mockedHandleClickSubtract).toHaveBeenCalledTimes(1);
+  });
 });
