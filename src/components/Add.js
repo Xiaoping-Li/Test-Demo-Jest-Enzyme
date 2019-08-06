@@ -6,7 +6,7 @@ class Add extends Component {
     return (
         <div>
           <h1>Add Function</h1>
-          <Form operator='+'/>
+          <Form operator='-'/>
         </div>
     );
   }

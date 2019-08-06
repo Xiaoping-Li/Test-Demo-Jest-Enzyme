@@ -4,6 +4,12 @@
 // 3. When you use mount you are automatically exposed to the logic of all the units (components) in your render tree making it impossible to only test the component in question.
 // 4. It is more costly in execution time when using mount, because it requires JSDOM.
 
+// render
+// There is another function like shallow and mount, which is render.
+// This has the ability to render to static HTML.
+// It renders the children.
+// But this does not have access to React lifecycle methods.
+
 import Add from '../src/components/Add';
 import Form from '../src/components/Form';
 
@@ -24,7 +30,7 @@ describe('<Add /> rendering', () => {
     expect(wrapper.find(Form)).toHaveLength(1);
   });
 
-  
+
 
   // Test will fail when wrapper = shallow(<Add />) because 'label's are children of <Form />, not <Add />. Change to wrapper = shallow(<Add />) will pass
   // The reason for this is, mount renders the full DOM including the child components in the parent component. 
